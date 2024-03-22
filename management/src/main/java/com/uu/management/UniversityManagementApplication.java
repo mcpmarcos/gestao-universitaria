@@ -1,13 +1,13 @@
-package com.uu.gu.gestaouniversitaria;
+package com.uu.management;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class GestaoUniversitariaApplication {
+public class UniversityManagementApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(GestaoUniversitariaApplication.class, args);
+		SpringApplication.run(UniversityManagementApplication.class, args);
 	}
 
 }
