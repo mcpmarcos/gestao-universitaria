@@ -16,13 +16,14 @@ import com.uu.management.models.Student;
 @Repository
 public interface StudentRepository extends JpaRepository<Student, String>{
 
-
     @Modifying
     @Query(value = "INSERT INTO student( rm, nome, username, cpf, birth, courses, courseGrids) VALUES(?1, ?2, ?3, ?4, ?5, ?6, ?7)", nativeQuery = true)
     void save(String rm, String name, String username, String cpf, Date birth, List<Course> courses, List<CourseGrid> courseGrids);
 
+    @Query(value = "SELECT * FROM student ORDER BY name ASC", nativeQuery = true)
     List<Student> findAll();
 
+    @Query(value = "SELECT EXISTS(SELECT 1 FROM student WHERE student_rm = ?1)", nativeQuery = true)
     Optional<Student> findByRm(String rm);
 
     void deleteByRm(String rm);

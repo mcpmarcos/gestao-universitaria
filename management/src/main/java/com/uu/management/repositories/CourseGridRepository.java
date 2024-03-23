@@ -18,11 +18,13 @@ import com.uu.management.models.Student;
 public interface CourseGridRepository extends JpaRepository<CourseGrid, Long>{
 
 @Modifying
-@Query(value = "INSERT INTO course(id, student, course, totalWorkload, globalAverage, enrolled) VALUES(?1, ?2, ?3, ?4, ?5, ?6)", nativeQuery = true)
+@Query(value = "INSERT INTO course_grid(id, student, course, totalWorkload, globalAverage, enrolled) VALUES(?1, ?2, ?3, ?4, ?5, ?6)", nativeQuery = true)
 void save(Long id, Student student, Course course, int totalWorkload, double globalAverage, boolean enrolled, Shift shift);
 
+@Query(value = "SELECT * FROM course_grid ORDER BY id ASC", nativeQuery = true)
 List<CourseGrid> findAll();
 
+@Query(value = "SELECT EXISTS(SELECT 1 FROM course_grid rid WHERE course_grid_id = ?1)", nativeQuery = true)
 Optional<CourseGrid> findById(Long id);
 
 void deleteById(Long id);
