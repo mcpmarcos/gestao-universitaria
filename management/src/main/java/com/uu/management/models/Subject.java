@@ -18,6 +18,8 @@ import lombok.Data;
 @Data
 public class Subject {
 
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;

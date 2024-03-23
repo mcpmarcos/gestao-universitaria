@@ -44,3 +44,5 @@ public class Student {
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
     private List<CourseGrid> courseGrids;
 }
+
+// String rm, name, username, cpf, Date birth, List<Course> courses, List<CourseGrid> courseGrid  
